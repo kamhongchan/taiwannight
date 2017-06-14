@@ -9,9 +9,16 @@
     	body {font-family:微軟正黑體,Helvetica;}
     	div {width:90%;margin:0px auto;}
     </style>
+    <script src="https://smtpjs.com/smtp.js"></script>
      <script type="text/javascript">
-	
+	if ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+    alert("使用行動裝置!");
+	}
+	else {
+    alert("使用桌上型裝置!");
+	}
 	</script>
+
 </head>
 
 
@@ -21,13 +28,11 @@
 	
 	<table><tr>
 	<td width="30%" align="center"><img src="contact.jpg" style="width:85%;height:auto;"></td>
-	<td width="70%"><h3>聯絡我們</h3>
+	<td width="70%"><h1>聯絡我們</h1>
 	<h2>Contact Us</h2>
 	<p>網頁管理員</p>
 	<p>Email：   @gmail.com</p>
 	<p>Test P<p></td></tr></table>
-	
-	
 
 	 <script type="text/javascript">
 	
