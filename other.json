@@ -1,0 +1,40 @@
+[{
+    "id":1,
+    "location":"keelung",
+    "name": "吉祥撞球網路館",
+    "number": "1",
+    "timec":"N",
+    "time":"暫缺",
+    "tel":"(02)2422-1622",
+    "address": "基隆市仁愛區愛三路87號",
+    "latitude":25.03568,
+    "longitude":121.56681,
+    "introduction":"暫缺"
+  },
+  {
+    "id":2,
+    "location":"keelung",
+    "name": "俞家鮮魚湯",
+    "number": "1",
+    "timec":"N",
+    "time":"01:30–09:30(周一二公休)",
+    "tel":"0933 934 971",
+    "address": "基隆市中山區仁安街131號",
+    "latitude":25.03568,
+    "longitude":121.56681,
+    "introduction":"暫缺"
+  },
+  {
+    "id":3,
+    "location":"keelung",
+    "name": "姚家鮮魚湯",
+    "number": "1",
+    "timec":"N",
+    "time":"00:30–10:00",
+    "tel":" 0932 073 952",
+    "address": "基隆市中山區中山四路175號",
+    "latitude":25.03568,
+    "longitude":121.56681,
+    "introduction":"暫缺"
+  }]
+  
