@@ -7,6 +7,7 @@
     <meta charset="utf-8" />
     <style type="text/css">
     	body {font-family:微軟正黑體,Helvetica;}
+        td {padding-left:20px;padding-bottom:15px;align: center;}
     </style>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"> 
      <script type="text/javascript">
@@ -24,8 +25,8 @@
 	var jsonUrl = "https://kamhongchan.github.io/taiwannight/nightmarket.json";
 	var content="<table>";
         $.getJSON(jsonUrl, function(data) {
-            for (i=0;i<=48;i++) {
-			var element="<tr><td><img src=nightmarket/"+i+".jpg"+"></td><td><h3>"+data[i].name+"</h3><p>營業時間："+data[i].time+"</p><p>地址："+data[i].address+"</p><p>特色食品："+data[i].food+"</p><p>簡介："+data[i].introduction+"</p><p></br></p></td></tr>";
+            for (i=0;i<=47;i++) {
+			var element="<tr><td width="+"25%"+"><a href="+"nightmarketf/"+i+".jpg"+" target="+"_blank"+"><img width="+"100%"+" src=nightmarket/"+i+".jpg"+"></a></td><td><h3>"+data[i].name+"</h3><p>營業時間："+data[i].time+"</p><p>地址："+data[i].address+"</p><p>特色食品："+data[i].food+"</p><p>簡介：</br>"+data[i].introduction+"</p><p></br></p></td></tr>";
 			content=content.concat(element);
             }
             content=content.concat("</table>");
