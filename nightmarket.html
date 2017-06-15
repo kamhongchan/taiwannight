@@ -17,15 +17,15 @@
 
 <body>
 	<img id="pic" src="1.jpg" style="z-index:1;width:100%;height:auto;">
+    <div id="choose"><h3>地區：</h3></div>
 	<div id="body"><p id="list"></p></div>
 
 	 <script type="text/javascript">
 	var jsonUrl = "https://kamhongchan.github.io/taiwannight/nightmarket.json";
 	var content="<table>";
         $.getJSON(jsonUrl, function(data) {
-            for (i=0;i<=38;i++) {
+            for (i=0;i<=48;i++) {
 			var element="<tr><td><img src=nightmarket/"+i+".jpg"+"></td><td><h3>"+data[i].name+"</h3><p>營業時間："+data[i].time+"</p><p>地址："+data[i].address+"</p><p>特色食品："+data[i].food+"</p><p>簡介："+data[i].introduction+"</p><p></br></p></td></tr>";
-			//alert(content);
 			content=content.concat(element);
             }
             content=content.concat("</table>");
