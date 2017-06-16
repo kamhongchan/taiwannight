@@ -16,24 +16,44 @@
 
 
 <body>
-	<img id="pic" src="1.jpg" style="z-index:1;width:100%;height:auto;">
-	<div id="body"><p id="list"></p></div>
-    <div id="left"><iframe src="https://www.google.com/maps/d/u/0/embed?mid=1iwhpghQaiAScZiI5hFN-ewC1320" width="640" height="480"></iframe></div>
+    <div><p id="list"><p><div>
+	<div style="width:auto;height:85%;"><iframe src="https://www.google.com/maps/d/embed?mid=1iwhpghQaiAScZiI5hFN-ewC1320" width="100%" height="100%"></iframe></div>
+    <div id="foooter"><p align="middle">TAIWAN NIGHT copyright@2017</p></div>
 
 	 <script type="text/javascript">
-	var jsonUrl = "https://kamhongchan.github.io/taiwannight/nightmarket.json";
-	var content="<table>";
+    var jsonUrl = "https://kamhongchan.github.io/taiwannight/nightmarket.json";
+    var content="<table>";
         $.getJSON(jsonUrl, function(data) {
+            for (i=0;i<=47;i++) {
+            var element="<tr><td width="+"25%"+"><a href="+"nightmarketf/"+i+".jpg"+" target="+"_blank"+"><img width="+"100%"+" src=nightmarket/"+i+".jpg"+"></a></td><td><h3>"+data[i].name+"</h3><p>營業時間："+data[i].time+"</p><p>地址："+data[i].address+"</p><p>特色食品："+data[i].food+"</p><p>簡介：</br>"+data[i].introduction+"</p><p></br></p></td></tr>";
+            content=content.concat(element);
+            }});
+            jsonUrl = "https://kamhongchan.github.io/taiwannight/club.json";
+        $.getJSON(jsonUrl, function(data) {    
+            for (i=0;i<=5;i++) {
+            element="<tr><td width="+"30%"+"><a href="+"clubf/"+i+".jpg"+" target="+"_blank"+"><img width="+"100%"+" src=club/"+i+".jpg"+"></a></td><td><h3>"+data[i].name+"</h3><p>營業時間："+data[i].time+"</p><p>地址："+data[i].address+"</p><p>簡介：</br>"+data[i].introduction+"</p><p></br></p></td></tr>";
+            content=content.concat(element);
+            }});
+            jsonUrl = "https://kamhongchan.github.io/taiwannight/hub.json";
+        $.getJSON(jsonUrl, function(data) {    
+            for (i=0;i<=18;i++) {
+            element="<tr><td><img src=ktv/"+i+".jpg"+"></td><td><h3>"+data[i].name+"</h3><p>營業時間："+data[i].time+"</p><p>電話：<a href="+"tel:012345678"+">"+data[i].tel+"</a></p><p>地址："+data[i].address+"</p><p></br></p></td></tr>";
+            content=content.concat(element);
+            }});
+            jsonUrl = "https://kamhongchan.github.io/taiwannight/ktv.json";
+        $.getJSON(jsonUrl, function(data) {    
             for (i=0;i<=38;i++) {
-			var element="<tr><td><img src=nightmarket/"+i+".jpg"+"></td><td><h3>"+data[i].name+"</h3><p>營業時間："+data[i].time+"</p><p>地址："+data[i].address+"</p><p>特色食品："+data[i].food+"</p><p>簡介："+data[i].introduction+"</p><p></br></p></td></tr>";
-			//alert(content);
-			content=content.concat(element);
-            }
+            element="<tr><td><img src=ktv/"+i+".jpg"+"></td><td><h3>"+data[i].name+"</h3><p>營業時間："+data[i].time+"</p><p>電話：<a href="+"tel:012345678"+">"+data[i].tel+"</a></p><p>地址："+data[i].address+"</p><p></br></p></td></tr>";
+            content=content.concat(element);
+            }});
+            jsonUrl = "https://kamhongchan.github.io/taiwannight/other.json";
+        $.getJSON(jsonUrl, function(data) {    
+            for (i=0;i<=2;i++) {
+            element="<tr><td width="+"30%"+"><a href="+"otherf/"+i+".jpg"+" target="+"_blank"+"><img width="+"100%"+" src=other/"+i+".jpg"+"></a></td><td><h3>"+data[i].name+"</h3><p>營業時間："+data[i].time+"</p><p>電話：<a href="+"tel:012345678"+">"+data[i].tel+"</a></p><p>地址："+data[i].address+"</p><p></br></p></td></tr>";
+            content=content.concat(element);
+            }});
             content=content.concat("</table>");
             document.getElementById("list").innerHTML=content;
-        });
-     //alert(content);
-    
 	</script>
 
 

@@ -7,6 +7,7 @@
     <meta charset="utf-8" />
     <style type="text/css">
     	body {font-family:微軟正黑體,Helvetica;}
+        td {padding-left:20px;padding-bottom:15px;align: center;}
     </style>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"> 
      <script type="text/javascript">
@@ -16,22 +17,61 @@
 
 
 <body>
-	<img id="pic" src="1.jpg" style="z-index:1;width:100%;height:auto;">
-	<div id="body"><p id="list"></p></div>
+	<img id="pic" src="bg/wherego.jpg" style="z-index:1;width:100%;height:auto;">
+    <div  style="position:obsolute;top:0px;right:0;float:left;z-index:3;width:40%;"><p margin-left: 20px;></p>
+    <h1>今天要去哪裡？</h1>
+    <p>今天晚天要去哪？又沒有意見？</p>
+    <p>就讓"今天去哪裡？"幫你抽出一個夜點讓今晚今晚星閃閃</br></p>
+    <button style="font-size:32px;background-color:blue; color: white;border: none;" onclick="get()">抽出一個吧</button>
+    </div>
+
+    <div id="body"><p id="list"></p></div>
+    <div id="foooter"><p align="middle">TAIWAN NIGHT copyright@2017</p></div>
 
 	 <script type="text/javascript">
-	var jsonUrl = "https://kamhongchan.github.io/taiwannight/nightmarket.json";
+     function get(){
+     var choose=Math.floor((Math.random() * 5));
+     var random=0;
+     var name="nightmarket";
+     var jsonUrl = "https://kamhongchan.github.io/taiwannight/nightmarket.json";
+
+    switch(choose) {
+    case 0:
+        jsonUrl = "https://kamhongchan.github.io/taiwannight/club.json";
+        random=Math.floor((Math.random() * 5));
+        name="club";
+        break;
+    case 1:
+        jsonUrl = "https://kamhongchan.github.io/taiwannight/pub.json";
+        random=Math.floor((Math.random() * 19));
+        name="pub";
+        break;
+    case 2:
+        jsonUrl = "https://kamhongchan.github.io/taiwannight/KTV.json";
+        random=Math.floor((Math.random() * 47));
+        name="KTV";
+        break;
+    case 3:
+        jsonUrl = "https://kamhongchan.github.io/taiwannight/other.json";
+        random=Math.floor((Math.random() * 2));
+        name="other";
+        break;
+    case 4:
+        jsonUrl = "https://kamhongchan.github.io/taiwannight/nightmarket.json";
+        random=Math.floor((Math.random() * 48));
+        name="nightmarket";
+        break;
+        }
+	
 	var content="<table>";
         $.getJSON(jsonUrl, function(data) {
-            for (i=0;i<=5;i++) {
-			var element="<tr><td><img src=nightmarket/"+i+".jpg"+"></td><td><h3>"+data[i].name+"</h3><p>營業時間："+data[i].time+"</p><p>地址："+data[i].address+"</p><p>特色食品："+data[i].food+"</p><p>簡介："+data[i].introduction+"</p><p></br></p></td></tr>";
+            var i=random;
+			var element="<tr><td width="+"35%"+"><a href="+name+"/"+i+".jpg"+" target="+"_blank"+"><img width="+"100%"+" src="+name+"/"+i+".jpg"+"></a></td><td><h3>"+data[i].name+"</h3><p>營業時間："+data[i].time+"</p><p>地址："+data[i].address+"</p><p>簡介：</br>"+data[i].introduction+"</p><p></br></p></td></tr>";
 			content=content.concat(element);
-            }
             content=content.concat("</table>");
             document.getElementById("list").innerHTML=content;
         });
-     //alert(content);
-    
+    }  
 	</script>
 
 
