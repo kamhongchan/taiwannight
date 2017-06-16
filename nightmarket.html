@@ -8,6 +8,7 @@
     <style type="text/css">
     	body {font-family:微軟正黑體,Helvetica;}
         td {padding-left:20px;padding-bottom:15px;align: center;}
+        button {font-size: 16px;}
     </style>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"> 
      <script type="text/javascript">
@@ -18,7 +19,7 @@
 
 <body>
 	<img id="pic" src="bg/nightmarket.jpg" style="z-index:1;width:100%;height:auto;">
-    <div id="choose"><h3>地區：</h3></div>
+    <div id="choose"><h3>地區：<button onclick="keelung()">基隆</button>   <button onclick="taipei()">臺北</button>   <button onclick="ntaipei()">新北</button></h3></div>
 	<div id="body"><p id="list"></p></div>
     <div id="foooter"><p align="middle">TAIWAN NIGHT copyright@2017</p></div>
 	 <script type="text/javascript">
@@ -33,7 +34,53 @@
             document.getElementById("list").innerHTML=content;
         });
      //alert(content);
+    function keelung(){
+    jsonUrl = "https://kamhongchan.github.io/taiwannight/nightmarket.json";
+    var content="<table>";
+        $.getJSON(jsonUrl, function(data) {
+            for (i=0;i<=47;i++) {
+                if(data[i].location=="keelung")
+                {
+                element="<tr><td width="+"25%"+"><a href="+"nightmarketf/"+i+".jpg"+" target="+"_blank"+"><img width="+"100%"+" src=nightmarket/"+i+".jpg"+"></a></td><td><h3>"+data[i].name+"</h3><p>營業時間："+data[i].time+"</p><p>地址："+data[i].address+"</p><p>特色食品："+data[i].food+"</p><p>簡介：</br>"+data[i].introduction+"</p><p></br></p></td></tr>";
+                    content=content.concat(element);
+                }
+            }
+            content=content.concat("</table>");
+            document.getElementById("list").innerHTML=content;
+        });}
+
+    function taipei(){
+    jsonUrl = "https://kamhongchan.github.io/taiwannight/nightmarket.json";
+    var content="<table>";
+        $.getJSON(jsonUrl, function(data) {
+            for (i=0;i<=47;i++) {
+                if(data[i].location=="taipei")
+                {
+                element="<tr><td width="+"25%"+"><a href="+"nightmarketf/"+i+".jpg"+" target="+"_blank"+"><img width="+"100%"+" src=nightmarket/"+i+".jpg"+"></a></td><td><h3>"+data[i].name+"</h3><p>營業時間："+data[i].time+"</p><p>地址："+data[i].address+"</p><p>特色食品："+data[i].food+"</p><p>簡介：</br>"+data[i].introduction+"</p><p></br></p></td></tr>";
+                    content=content.concat(element);
+                }
+            }
+            content=content.concat("</table>");
+            document.getElementById("list").innerHTML=content;
+        });}
+
+    function ntaipei(){
+    jsonUrl = "https://kamhongchan.github.io/taiwannight/nightmarket.json";
+    var content="<table>";
+        $.getJSON(jsonUrl, function(data) {
+            for (i=0;i<=47;i++) {
+                if(data[i].location=="ntaipei")
+                {
+                element="<tr><td width="+"25%"+"><a href="+"nightmarketf/"+i+".jpg"+" target="+"_blank"+"><img width="+"100%"+" src=nightmarket/"+i+".jpg"+"></a></td><td><h3>"+data[i].name+"</h3><p>營業時間："+data[i].time+"</p><p>地址："+data[i].address+"</p><p>特色食品："+data[i].food+"</p><p>簡介：</br>"+data[i].introduction+"</p><p></br></p></td></tr>";
+                    content=content.concat(element);
+                }
+            }
+            content=content.concat("</table>");
+            document.getElementById("list").innerHTML=content;
+        });}
+     //alert(content);
     
+    </script>
 	</script>
 
 
